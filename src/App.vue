@@ -1,32 +1,61 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <router-view class="view" />
+    <TheNavigater class="nav" />
   </div>
 </template>
-
+<script>
+import TheNavigater from "@/components/TheNavigater.vue";
+export default {
+  data(){
+    return{
+    }
+  },
+  components:{
+    TheNavigater
+  }
+}
+</script>
 <style>
+* {
+	box-sizing: border-box;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  width: 750px;
+  height: 1334px;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 0 auto;
 }
 
-#nav {
-  padding: 30px;
+.nav {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+}
+#app::-webkit-scrollbar {
+    width: 0;
+    background-color: transparent;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+#app::-webkit-scrollbar-track {
+    background-color: transparent;
+
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+#app::-webkit-scrollbar-thumb {
+    background: transparent;
+
+}
+
+#app::-webkit-scrollbar-button:start {
+    background: none;
+    background-size: 0;
+}
+
+#app::-webkit-scrollbar-button:end {
+    background: none;
+    background-size: 0;
 }
 </style>
